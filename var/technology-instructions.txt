@@ -1,0 +1,122 @@
+
+
+  AMOS 2013 Projektseite
+  ----------------------
+
+  URL  :  http://ss13.osramos.de/
+
+
+  AMOS 2013 Log Viewer
+  --------------------
+
+    Allows students to follow the logs of their tomcat instance and download
+    individual log files. Logs are cleared upon tomcat restart (e.g. when a new
+    artifact is deployed) but are archived first.
+
+    URL       :  http://ss13.osramos.de/logs
+    Username  :  ss13-proj{1-9}
+    Password  :  see individual projects
+
+
+  Artifact Downloader Web Project
+  -------------------------------
+
+    - Download Eclipse IDE for Java EE Developers from http://www.eclipse.org/downloads/.
+    - Unzip "artifact-downloader.zip" to a directory of your choice.
+    - Import project in Eclipse: File -> Import -> General -> Existing Projects into Workspace.
+    - Select root directory: The unzipped "artifact-downloader/" directory -> Finish.
+    - Copy your artifact (an .apk file or similar) to "Java Resources/src/main/resources".
+    - Open file "artifact-info.properties" in "Java Resources/src/main/resources".
+    - Change the "artifact=" value to the name of your artifact file. DO NOT REMOVE THE "/".
+    - Change the "teamName=" value to "Project [X] - [Project Name] and replace [X] and [Project Name] accordingly.
+    - Select File -> Export -> Web -> WAR file
+    - Web project: "artifact-downloader"
+    - Destination: "[Root directory of your AMOS repostiory]/ROOT.war" -> Finish.
+    - Add the generated .war file to your repository, commit and push (git only).
+
+    Name of the WAR file:
+      "ROOT.war"
+
+
+  Tutorials
+  ---------
+
+    Eclipse:
+      http://wiki.eclipse.org/Eclipse/Installation
+
+    Eclipse + Subclipse:
+      http://subclipse.tigris.org/
+      http://subclipse.tigris.org/servlets/ProjectProcess?pageID=p4wYuA
+    
+    Eclipse + egit:
+      http://www.eclipse.org/egit/
+      http://eclipse.github.com/
+
+    Tomcat:
+      http://www.vogella.com/articles/ApacheTomcat/article.html
+
+    Tomcat + Eclipse:
+      http://www.banym.de/eclipse/install-tomcat-with-eclipse
+
+    PostgreSQL installation guides:
+      http://wiki.postgresql.org/wiki/Detailed_installation_guides
+
+    PostgreSQL graphical UI:
+      http://www.pgadmin.org
+
+    Bugzilla:
+      Not sure if that's really necessary... but here is one option:
+      http://divyad.wordpress.com/2007/07/20/quick-bugzilla-tutorial
+
+    Subversion:
+      http://svnbook.red-bean.com/index.en.html
+
+    Git (GitHub):
+      http://sixrevisions.com/resources/git-tutorials-beginners
+      http://net.tutsplus.com/tutorials/other/getting-the-hang-of-github
+
+  Library/Framework suggestions:
+
+    O/R mappers:
+      JPA + OpenJPA:
+        http://djitz.com/neu-mscs/getting-started-using-apache-openjpa
+
+      other possibilities:
+        Hibernate
+        ORMLite (also works on Android)
+
+    Databases on Android:
+
+      SQLite:
+        http://www.vogella.com/articles/AndroidSQLite/article.html
+
+      other possibilities:
+        db4o
+
+    REST services:
+      http://www.vogella.com/articles/REST/article.html
+
+
+  Project 1
+  ---------
+
+    URL  :  http://proj1.ss13.osramos.de
+
+    Log Viewer
+    ----------
+      Username  :  ss13-proj1
+      Password  :  ...
+
+    Database
+    --------
+
+      The database is cleared by default before a new artifact is deployed. The 
+      old database is archived first and can be restored or sent to the students 
+      if required. Projects have to let me know if they don't want their DB 
+      cleared. Students can also connect to their DB from their work machines
+      using "pgadmin3" or "psql".
+
+      Server    :  faui2o2j.informatik.uni-erlangen.de:5432
+      Database  :  ss13-proj1
+      Username  :  ss13-proj1
+      Password  :  ...
