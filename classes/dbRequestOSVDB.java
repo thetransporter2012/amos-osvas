@@ -54,7 +54,13 @@ public class dbRequestOSVDB extends dbRequest{
 	public dbRequestOSVDB() {
 		OSVDBRequests++;
 		requestID = OSVDBRequests;
-		//time = getTime();???
+	}
+	
+	public dbRequestOSVDB(String productName, String productVersion) {
+		OSVDBRequests++;
+		requestID = OSVDBRequests;
+		this.productName = productName;
+		this.productVersion = productVersion;
 	}
 	
 	//methods
