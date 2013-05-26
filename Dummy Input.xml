@@ -1,124 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ComponentList>
-
-<URLString>
-
-<ID> 1 </ID>
-
-<title> Cisco </title>
-
-<textType> </textType>
-
-<bsDate>  </bsDate>
-
-<beDate>  </beDate>
-
-<refId>  </refId>
-
-<refTypes>  </refTypes>
-
-<vendors>  </vendors>
-
-<cvssScoreForm>  </cvssScoreForm>
-
-<cvssScoreTo>  </cvssScoreTo>
-
-<cvssAv>    </cvssAv>
-
-<cvssAc>    </cvssAc>
- 
-<cvssA>     </cvssA>
-
-<cvssCi>    </cvssCi>
-
-<cvssIi>    </cvsIi>
-
-<cvssAi>    </cvssAi>
-
-<additionalCriteria>    </additionalCriteria>
- 
-
-</URLString>
-
-
-<URLString>
-
-<ID> 2 </ID>
-
-<title> Adobe+Acrobat </title>
-
-<textType> </textType>
-
-<bsDate>  </bsDate>
-
-<beDate>  </beDate>
-
-<refId>  </refId>
-
-<refTypes>  </refTypes>
-
-<vendors>  </vendors>
-
-<cvssScoreForm>  </cvssScoreForm>
-
-<cvssScoreTo>  </cvssScoreTo>
-
-<cvssAv>    </cvssAv>
-
-<cvssAc>    </cvssAc>
- 
-<cvssA>     </cvssA>
-
-<cvssCi>    </cvssCi>
-
-<cvssIi>    </cvsIi>
-
-<cvssAi>    </cvssAi>
-
-<additionalCriteria>    </additionalCriteria>
- 
-
-</URLString>
-
-
-<URLString>
-
-<ID> 3 </ID>
-
-<title> Apache </title>
-
-<textType> </textType>
-
-<bsDate>  </bsDate>
-
-<beDate>  </beDate>
-
-<refId>  </refId>
-
-<refTypes>  </refTypes>
-
-<vendors>  </vendors>
-
-<cvssScoreForm>  </cvssScoreForm>
-
-<cvssScoreTo>  </cvssScoreTo>
-
-<cvssAv>    </cvssAv>
-
-<cvssAc>    </cvssAc>
- 
-<cvssA>     </cvssA>
-
-<cvssCi>    </cvssCi>
-
-<cvssIi>    </cvsIi>
-
-<cvssAi>    </cvssAi>
-
-<additionalCriteria>    </additionalCriteria>
- 
-
-</URLString>
-
+	<URLString id="1">
+		<title> Cisco </title>
+		<textType> </textType>
+		<bsDate>  </bsDate>
+		<beDate>  </beDate>
+		<refId>  </refId>
+		<refTypes>  </refTypes>
+		<vendors>  </vendors>
+		<cvssScoreForm>  </cvssScoreForm>
+		<cvssScoreTo>  </cvssScoreTo>
+		<cvssAv>    </cvssAv>
+		<cvssAc>    </cvssAc> 
+		<cvssA>     </cvssA>
+		<cvssCi>    </cvssCi>
+		<cvssIi>    </cvsIi>
+		<cvssAi>    </cvssAi>
+		<additionalCriteria>    </additionalCriteria> 
+	</URLString>
+	<URLString id="2">
+		<title> Adobe+Acrobat </title>
+		<textType> </textType>
+		<bsDate>  </bsDate>
+		<beDate>  </beDate>
+		<refId>  </refId>
+		<refTypes>  </refTypes>
+		<vendors>  </vendors>
+		<cvssScoreForm>  </cvssScoreForm>
+		<cvssScoreTo>  </cvssScoreTo>
+		<cvssAv>    </cvssAv>
+		<cvssAc>    </cvssAc> 
+		<cvssA>     </cvssA>
+		<cvssCi>    </cvssCi>
+		<cvssIi>    </cvsIi>
+		<cvssAi>    </cvssAi>
+		<additionalCriteria>    </additionalCriteria> 
+	</URLString>
+	<URLString id="3">
+		<title> Apache </title>
+		<textType> </textType>
+		<bsDate>  </bsDate>
+		<beDate>  </beDate>
+		<refId>  </refId>
+		<refTypes>  </refTypes>
+		<vendors>  </vendors>
+		<cvssScoreForm>  </cvssScoreForm>
+		<cvssScoreTo>  </cvssScoreTo>
+		<cvssAv>    </cvssAv>
+		<cvssAc>    </cvssAc> 
+		<cvssA>     </cvssA>
+		<cvssCi>    </cvssCi>
+		<cvssIi>    </cvsIi>
+		<cvssAi>    </cvssAi>
+		<additionalCriteria>    </additionalCriteria> 
+	</URLString>
 </ComponentList>
