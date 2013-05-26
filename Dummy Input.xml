@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<URLString>
+
+<databaseURL>  http://www.osvdb.org/search/search?search%5Bvuln_title%5D= </databaseURL>
+
+<title> Cisco </title>
+
+<textType> </textType>
+
+<bsDate>  </bsDate>
+
+<beDate>  </beDate>
+
+<refId>  </refId>
+
+<refTypes>  </refTypes>
+
+<vendors>  </vendors>
+
+<cvssScoreForm>  </cvssScoreForm>
+
+<cvssScoreTo>  </cvssScoreTo>
+
+<cvssAv>    </cvssAv>
+
+<cvssAc>    </cvssAc>
+ 
+<cvssA>     </cvssA>
+
+<cvssCi>    </cvssCi>
+
+<cvssIi>    </cvsIi>
+
+<cvssAi>    </cvssAi>
+
+<additionalCriteria>    </additionalCriteria>
+ 
+<end> &kthx=search </end>
+
+</URLString>
