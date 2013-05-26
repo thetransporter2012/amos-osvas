@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<ComponentList>
+
 <URLString>
 
-<databaseURL>  http://www.osvdb.org/search/search?search%5Bvuln_title%5D= </databaseURL>
+<ID> 1 </ID>
 
 <title> Cisco </title>
 
@@ -36,6 +38,87 @@
 
 <additionalCriteria>    </additionalCriteria>
  
-<end> &kthx=search </end>
 
 </URLString>
+
+
+<URLString>
+
+<ID> 2 </ID>
+
+<title> Adobe+Acrobat </title>
+
+<textType> </textType>
+
+<bsDate>  </bsDate>
+
+<beDate>  </beDate>
+
+<refId>  </refId>
+
+<refTypes>  </refTypes>
+
+<vendors>  </vendors>
+
+<cvssScoreForm>  </cvssScoreForm>
+
+<cvssScoreTo>  </cvssScoreTo>
+
+<cvssAv>    </cvssAv>
+
+<cvssAc>    </cvssAc>
+ 
+<cvssA>     </cvssA>
+
+<cvssCi>    </cvssCi>
+
+<cvssIi>    </cvsIi>
+
+<cvssAi>    </cvssAi>
+
+<additionalCriteria>    </additionalCriteria>
+ 
+
+</URLString>
+
+
+<URLString>
+
+<ID> 3 </ID>
+
+<title> Apache </title>
+
+<textType> </textType>
+
+<bsDate>  </bsDate>
+
+<beDate>  </beDate>
+
+<refId>  </refId>
+
+<refTypes>  </refTypes>
+
+<vendors>  </vendors>
+
+<cvssScoreForm>  </cvssScoreForm>
+
+<cvssScoreTo>  </cvssScoreTo>
+
+<cvssAv>    </cvssAv>
+
+<cvssAc>    </cvssAc>
+ 
+<cvssA>     </cvssA>
+
+<cvssCi>    </cvssCi>
+
+<cvssIi>    </cvsIi>
+
+<cvssAi>    </cvssAi>
+
+<additionalCriteria>    </additionalCriteria>
+ 
+
+</URLString>
+
+</ComponentList>
