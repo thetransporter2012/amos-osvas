@@ -34,6 +34,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -47,13 +48,16 @@ public class XMLReader {
 	 */
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 		
-		String[] s = URLGen();
-		/*
+	//	String[] s = URLGen();
+		String[] s = OutputString();
+		
+	//	/*
 		for (int i = 0; i < s.length; i++){
 			System.out.println(s[i]);
 		}
-		*/
-		
+	//	*/
+
+		/*
 		//examplary url. The ones generated from URLGen() return HTTP response code 403!
 		URL url = new URL("http://en.wikipedia.org/wiki/Hidden_variable_theory");
 		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -61,6 +65,8 @@ public class XMLReader {
         while ((inputLine = in.readLine()) != null)
 		            System.out.println(inputLine);
 		in.close();
+		*/
+	
 		
 		/*
 		 * real code to be executed, at the moment throws IOException
@@ -74,6 +80,28 @@ public class XMLReader {
 	}
 
 	public static final String directory = "/Users/Radi/Desktop/XMLInput.xml";
+	
+	public static String[] OutputString() throws IOException{
+
+		//examplary url. The ones generated from URLGen() return HTTP response code 403!
+		URL url = new URL("http://en.wikipedia.org/wiki/Hidden_variable_theory");
+		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+        String inputLine;
+        int lines = 0;
+        while ((inputLine = in.readLine()) != null){
+		    lines++;
+        }
+        String[] s = new String[lines];
+        in = new BufferedReader(new InputStreamReader(url.openStream()));
+        int i = 0;
+        while ((inputLine = in.readLine()) != null){
+            s[i] = inputLine;
+            i++;
+        }
+        in.close();
+		
+		return s;
+	}
 	
 	
 	/**
