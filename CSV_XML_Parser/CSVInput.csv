@@ -1,0 +1,23 @@
+Bill of Materials;;title;;;;;;;;;;;
+Approval Status;License Conflict;Component;Version;Home Page;Component Comment;License;Usage;Ship Status;# Manual Code Match;# Rapid ID Code Match;# Manual Depends;# Manual Search;Used By
+Pending Approval;No Conflicts;Apache Ant;01.05.2002;http://ant.apache.org/;;Apache 1.1;File;Ship;342;0;0;0;
+Pending Approval;Component License Conflict;Apache Ant;Unspecified;http://ant.apache.org/;;Apache License Version 2.0;File;Ship;411;0;0;0;
+Pending Approval;No Conflicts;Apache Jakarta Commons FileUpload;Unspecified;http://jakarta.apache.org/commons/fileupload/;;Apache 1.1;File;Ship;23;0;0;0;
+Pending Approval;Component License Conflict;Apache Jakarta Commons IO;Unspecified;http://jakarta.apache.org/commons/io/;;Apache License Version 2.0;File;Ship;43;0;0;0;
+Pending Approval;Component License Conflict;Apache Lucene Java;Unspecified;http://jakarta.apache.org/lucene/docs/index.html;;Apache License Version 2.0;File;Ship;232;0;0;0;
+Pending Approval;No Conflicts;Apache Xerces Java XML Parser;Unspecified;http://xml.apache.org/xerces2-j/index.html;;Apache 1.1;File;Ship;699;0;0;0;
+Pending Approval;No Conflicts;Apache XML xml-commons;1.0.b2;http://xml.apache.org/commons/;;Apache 1.1;File;Ship;187;0;0;0;
+Pending Approval;No Conflicts;bcrypt - blowfish file encryption;Unspecified;http://sourceforge.net/projects/bcrypt/;;BSD 2.0;Snippet;Ship;1;0;0;0;
+Pending Approval;No Conflicts;db-charmer;Unspecified;http://github.com/kovyrin/db-charmer/;;MIT License V2;File;Ship;26;0;0;0;
+Pending Approval;No Conflicts;GnuPG;Unspecified;http://www.gnupg.org/;;GPL 2.0;Component (Merely Aggregated) (+ Development tool);Ship;6;0;0;0;
+Pending Approval;No Conflicts;JavaServer Faces;01.01.2001;http://java.sun.com/j2ee/javaserverfaces/index.jsp;;Sun Code Sample License;Other (Development Tool);Used at development time;5;0;0;0;
+Pending Approval;Declared License Conflict and Component License Conflict;libgcrypt;Unspecified;http://www.gnupg.org;;LGPL 2.1;Snippet;Ship;1;0;0;0;
+Pending Approval;Declared License Conflict and Component License Conflict;Lokale Komponente: sieht nach libcrypt aus;Unspecified;;;LGPL 2.1;Snippet;Ship;1;0;0;0;
+Pending Approval;Declared License Conflict and Component License Conflict;Mercurial Toolbar;Unspecified;http://mercurialtoolbar.codeplex.com/;;GPL 2.0;Component;Ship;1;0;0;0;
+Pending Approval;Component License Conflict;OpenSSL;0.9.1c;http://www.openssl.org/;;OpenSSL Combined License;File;Ship;121;0;0;0;
+Pending Approval;No Conflicts;OpenVPN;Unspecified;http://openvpn.sourceforge.net/;;OpenVPN GPL 2 Only with Exception License;Component (Merely Aggregated);Ship;1;0;0;0;
+Pending Approval;Component License Conflict;OurFaces;20040910_0744;https://ourfaces.dev.java.net/;;Sun Public License v 1.0;File;Ship;15;0;0;0;
+Pending Approval;Declared License Conflict and Component License Conflict;petris;Unspecified;http://github.com/gitpan/petris/;;GPL 2.0;File;Ship;17;0;0;0;
+Pending Approval;No Conflicts;PostgreSQL Database Server;Unspecified;http://www.postgresql.org/;;PostgreSQL License;File;Ship;23;0;0;0;
+Pending Approval;No Conflicts;RuneKit;0.1.1;http://sourceforge.net/projects/runescapekit/;;GPL 2.0;Component (Merely Aggregated);Ship;1;0;0;0;
+N/A;N/A;Tutorial_Files;Unspecified;;;[template] Basic Proprietary Commercial License;Original Code;Ship;9;0;0;0;
