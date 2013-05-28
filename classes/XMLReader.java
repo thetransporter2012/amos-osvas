@@ -48,28 +48,45 @@ public class XMLReader {
 	 */
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 		
-	//	String[] s = URLGen();
-		String[] s = OutputString();
-		
-	//	/*
-		for (int i = 0; i < s.length; i++){
-			System.out.println(s[i]);
-		}
-	//	*/
 
-		/*
+//		/* PLAN A - the real query - an example from OSVDB.org/api
+		// vendor = "Microsoft"
+		// product = "Windows 2003"
+		// version =  "???"
+		String API = "XXXXXXXXXXXXXXXXXXXXXXXXXX";
+		System.out.println(getUrlInApi(1152, 1780, 3084, API)); 
+//		 */
+		
+		
+		/* PLAN B - URL generator
+		 String[] s = URLGen();
+		 for (int i = 0; i < s.length; i++){
+			System.out.println(s[i]);
+		 }
+		 */
+		
+	
+		/* PLAN C - XML from the database generator
+		 String[] s = OutputString();
+		 for (int i = 0; i < s.length; i++){
+			System.out.println(s[i]);
+		 }
+		 */		 
+	
+		 
+		/* PLAN D - XML from the database generator - quick
 		//examplary url. The ones generated from URLGen() return HTTP response code 403!
 		URL url = new URL("http://en.wikipedia.org/wiki/Hidden_variable_theory");
 		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null)
+	       String inputLine;
+	       while ((inputLine = in.readLine()) != null)
 		            System.out.println(inputLine);
 		in.close();
-		*/
+		*/		 
+		 
 	
 		
-		/*
-		 * real code to be executed, at the moment throws IOException
+		/* PLAN E - DO NOT USE! - the real code to be executed, at the moment throws IOException
 		URL url = new URL(s[0]);
 		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
         String inputLine;
@@ -79,7 +96,7 @@ public class XMLReader {
 		*/
 	}
 
-	public static final String directory = "/Users/Radi/Desktop/XMLInput.xml";
+	public static final String inputXMLdirectory = "/Users/Radi/Desktop/XMLQuery.xml";
 	
 	public static String[] OutputString() throws IOException{
 
@@ -105,7 +122,7 @@ public class XMLReader {
 	
 	
 	/**
-	 * generate an array of URL addresses to be visited 
+	 * generate an array of URL addresses to be visited, stored in the XML file
 	 * 
 	 * @return a string of URLs
 	 * @param none 
@@ -115,7 +132,7 @@ public class XMLReader {
 	 */
 	public static String[] URLGen() throws ParserConfigurationException, SAXException, IOException{
 		
-		String[] s = XMLReaderByTitle(directory);
+		String[] s = XMLReaderByTitle(inputXMLdirectory);
 		for (int i = 0; i < s.length; i++){
 			String[] cString = new String[1];
 			cString[0] = s[i];
@@ -160,6 +177,36 @@ public class XMLReader {
 	 * get a string that can be put in a browser, leading to a 
 	 * specific search of a certain vendor
 	 * 
+	 * @param vendorID The vendor ID in OSVDB
+	 * @param productID The product ID in OSVDB
+	 * @param versionID The product version ID in OSVDB
+	 * @param APIKey
+	 * @return a string ready to be written in a browser
+	 */
+	public static String getUrlInApi(int vendorID, int productID, int versionID, String APIKey) {
+		
+		String s = "";
+		
+		if (APIKey.length() != 26){
+			System.out.println("Please provide a valid API key");
+			return null;
+		} else if (vendorID == -1 || productID == -1) {
+			return s;
+		} else if (versionID == -1) {
+			s = "http://osvdb.org/api/vulns_by_vendor_id_and_product_id/" 
+					+APIKey+ "/" + vendorID + "?product=" + productID;
+		} else {
+			s = "http://osvdb.org/api/vulns_by_vendor_id_and_product_id_and_version_id/" 
+					+APIKey+ "/" + vendorID + "?product=" + productID + "&version=" + versionID;
+		}
+		return s;
+	}
+	
+	
+	/**
+	 * get a string that can be put in a browser, leading to a 
+	 * specific search of a certain vendor
+	 * 
 	 * @param args The title or titles being browsed
 	 * @return a string ready to be written in a browser
 	 */
@@ -193,10 +240,13 @@ public class XMLReader {
 			title += args[args.length-1];
 		}
 		
+		
+		
+		
 		String s = "http://www.osvdb.org/search/search?search%5Bvuln_title%5D="
 				+title+							//string (blanks are filled with "+")
 				"&search%5Btext_type%5D="
-				+textType+						//"titles" or "alltext"
+				+textType+"alltext"+			//"titles" or "alltext"
 				"&search%5Bs_date%5D="
 				+bsDate+						//"May+8%2C+2013"	"Month" + "+(int)day" + "%2C+" + "(int)year"
 				"&search%5Be_date%5D="
