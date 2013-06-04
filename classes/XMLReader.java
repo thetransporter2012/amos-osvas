@@ -19,7 +19,6 @@
 	 * <http://www.gnu.org/licenses/>.
 	 */
 	 
-
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
@@ -33,6 +32,7 @@ import org.xml.sax.SAXException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -40,6 +40,13 @@ import java.net.URLConnection;
 
 public class XMLReader {
 
+	public static int maxXMLlen = 2000;		//TODO update the actual number of XML lines
+	public static int vendor = 1152; 	//Microsoft
+	public static int product = 1780; 	//Windows
+	public static int version = 3084; 	//???
+	static String apiKey = "XXXXXXXXXXXXXXXXXXXXXXXXXX";
+	public static final String inputXMLdirectory = "/Users/Radi/Desktop/XMLQuery.xml";
+	
 	/**
 	 * @param args
 	 * @throws IOException 
@@ -47,76 +54,52 @@ public class XMLReader {
 	 * @throws ParserConfigurationException 
 	 */
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-		
 
-//		/* PLAN A - the real query - an example from OSVDB.org/api
-		// vendor = "Microsoft"
-		// product = "Windows 2003"
-		// version =  "???"
-		String API = "XXXXXXXXXXXXXXXXXXXXXXXXXX";
-		System.out.println(getUrlInApi(1152, 1780, 3084, API)); 
-//		 */
-		
-		
-		/* PLAN B - URL generator
-		 String[] s = URLGen();
-		 for (int i = 0; i < s.length; i++){
+		/* PLAN A - code behind the OSVDB vulnerability query page, HTTP response: 500
+		String urlAddress = getUrlInApi(vendor, product, version, apiKey);
+		String[] s = OutputString(urlAddress);
+		for (int i = 0; i < s.length; i++){
 			System.out.println(s[i]);
-		 }
-		 */
-		
-	
-		/* PLAN C - XML from the database generator
-		 String[] s = OutputString();
-		 for (int i = 0; i < s.length; i++){
-			System.out.println(s[i]);
-		 }
+		}
 		 */		 
+
+//		/* PLAN B - code behind the OSVDB advanced search result page
+		String[] s = URLGen();
+		String urlAddress = s[0];
+		String[] output = OutputString(urlAddress);
+		System.out.println("The source code of this URL:");
+		System.out.println("");
+		System.out.println(urlAddress);
+		System.out.println("");
+		System.out.println("is this:");
+		System.out.println("");
+		for (int i = 0; i < output.length; i++){
+			System.out.println(output[i]);
+		}
+//		 */		 
 	
-		 
-		/* PLAN D - XML from the database generator - quick
-		//examplary url. The ones generated from URLGen() return HTTP response code 403!
-		URL url = new URL("http://en.wikipedia.org/wiki/Hidden_variable_theory");
-		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-	       String inputLine;
-	       while ((inputLine = in.readLine()) != null)
-		            System.out.println(inputLine);
-		in.close();
-		*/		 
-		 
-	
-		
-		/* PLAN E - DO NOT USE! - the real code to be executed, at the moment throws IOException
-		URL url = new URL(s[0]);
-		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null)
-		            System.out.println(inputLine);
-		in.close();
-		*/
 	}
-
-	public static final String inputXMLdirectory = "/Users/Radi/Desktop/XMLQuery.xml";
 	
-	public static String[] OutputString() throws IOException{
-
-		//examplary url. The ones generated from URLGen() return HTTP response code 403!
-		URL url = new URL("http://en.wikipedia.org/wiki/Hidden_variable_theory");
-		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+	public static String[] OutputString(String urlAddress) throws IOException{
+		if (urlAddress == null){
+			return null;
+		}
+		URL url = new URL(urlAddress);
+		URLConnection uc = url.openConnection();
+		uc.setRequestProperty("Accept", "*/*");
+		uc.setRequestProperty("Connection", "Keep-Alive");
+		uc.setRequestProperty("User-Agent", "Wget/1.13.4 (linux-gnu)"); 
+		uc.connect();
+		InputStream is = uc.getInputStream();
+		BufferedReader in = new BufferedReader(new InputStreamReader(is));
         String inputLine;
-        int lines = 0;
-        while ((inputLine = in.readLine()) != null){
-		    lines++;
-        }
-        String[] s = new String[lines];
-        in = new BufferedReader(new InputStreamReader(url.openStream()));
+        String[] s = new String[maxXMLlen];
         int i = 0;
         while ((inputLine = in.readLine()) != null){
             s[i] = inputLine;
             i++;
         }
         in.close();
-		
 		return s;
 	}
 	
@@ -131,11 +114,11 @@ public class XMLReader {
 	 * @throws SAXException 
 	 */
 	public static String[] URLGen() throws ParserConfigurationException, SAXException, IOException{
-		
 		String[] s = XMLReaderByTitle(inputXMLdirectory);
 		for (int i = 0; i < s.length; i++){
 			String[] cString = new String[1];
 			cString[0] = s[i];
+			//s[i] = getUrlInApi(i, i, i, null);
 			s[i] = getUrlByTitle(cString);
 		}
 		return s;
@@ -151,13 +134,11 @@ public class XMLReader {
 	 * @throws SAXException 
 	 */
 	public static String[] XMLReaderByTitle (String directory) throws ParserConfigurationException, SAXException, IOException{
-		
 		File source = new File(directory);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(source);
 		NodeList nList = doc.getElementsByTagName("URLString");
-		
 		int len = 0;
 		for (int i = 0; i < nList.getLength(); i++){
 			len++;
@@ -168,7 +149,6 @@ public class XMLReader {
 			Element eElement = (Element) nNode;
 			s[i] = eElement.getElementsByTagName("title").item(0).getTextContent();
 		} 
-		
 		return s;
 	}
 	
@@ -184,9 +164,7 @@ public class XMLReader {
 	 * @return a string ready to be written in a browser
 	 */
 	public static String getUrlInApi(int vendorID, int productID, int versionID, String APIKey) {
-		
 		String s = "";
-		
 		if (APIKey.length() != 26){
 			System.out.println("Please provide a valid API key");
 			return null;
@@ -239,10 +217,7 @@ public class XMLReader {
 			}
 			title += args[args.length-1];
 		}
-		
-		
-		
-		
+
 		String s = "http://www.osvdb.org/search/search?search%5Bvuln_title%5D="
 				+title+							//string (blanks are filled with "+")
 				"&search%5Btext_type%5D="
