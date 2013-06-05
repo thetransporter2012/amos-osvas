@@ -36,7 +36,7 @@ public class dbRequestOSVDB extends dbRequest{
 	
 	//instance variables - product specification
 	private String productName;
-	private String procuctVersion;
+	private String productVersion;
 	
 	//instance variables - search criteria
 	long createdOn; //<created-on type="datetime">
