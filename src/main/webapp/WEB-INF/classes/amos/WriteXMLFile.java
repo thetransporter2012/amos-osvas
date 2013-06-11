@@ -49,11 +49,21 @@ public class WriteXMLFile {
 		return "Scheint zu gehen";
 	}
 	
+	public static String inputPathCSV = "";
+	public static String outputPathXML = "";
+	
+	public void setInputPath (String inputPath){
+		inputPathCSV = inputPath;
+	}
+	
+	public void setOutputPath (String outputPath){
+		outputPathXML = outputPath;
+	}
+	
 	public static void main(String[] args) throws Exception{
 		 try {
-			 
-			 	String xmlpath = "/XMLQuery.xml";
-			 	String csvpath = "/CSVInput.csv";
+			 	String xmlpath = outputPathXML;
+			 	String csvpath = inputPathCSV;
 			 	
 				DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder docBuilder = docFactory.newDocumentBuilder();							
@@ -219,7 +229,7 @@ public class WriteXMLFile {
 		 
 				transformer.transform(source, result);
 		 
-				System.out.println("File saved sucessfully!");
+			//	System.out.println("File saved sucessfully!");
 		 
 			  } catch (ParserConfigurationException pce) {
 				pce.printStackTrace();
