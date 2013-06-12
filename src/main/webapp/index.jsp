@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+﻿<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <!-- 
  - Copyright (c) 2013 by The AMOS project, Group 3, http://osr.cs.fau.de/2013/04/17/the-2013-amos-projects-start-today/
@@ -19,32 +19,49 @@
  - License along with this program. If not, see
  - <http://www.gnu.org/licenses/>.
  -->
+
+<%@ page import="java.io.*" %>
+<%@ page import="java.io.BufferedReader" %>
+<%@ page import="java.io.FileInputStream" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="javax.xml.parsers.DocumentBuilderFactory" %>
+<%@ page import="javax.xml.parsers.DocumentBuilder" %>
+<%@ page import="javax.xml.parsers.ParserConfigurationException" %>
+<%@ page import="javax.xml.transform.*" %>
+<%@ page import="org.w3c.dom.*" %>
+<%@ page import="amos.*" %>
+
+
+
 <html>
 <body bgcolor="#E6E6FA">
 <h1>Open Source Vulnerability Assessment Service</h1>
 <h2>AMOS SS13 Project 3</h2>
 <h3>University Erlangen-Nürnberg</h3>
 
-<p>Give the name and the version here:</p>
-<form method="post">
-  Software name: <input type="text" name="name"><br>
-	Version: <select value="version">
-		<option value="option1">Option 1</option>
-		<option value="option2">Option 2</option>
-		<option value="...">...</option>
-	</select><br><br>
-	<button type = "submit" 
+<p>Upload your File list here</p>
+
+	
+	<form action="index2.jsp" enctype="multipart/form-data" method="POST">
+<input type="file" name="myFile">
+<input type="submit" value="Upload">
+<br>
+<button type = "submit" 
 			value = "Search"
 			width = "100"
 			style="height:25px; width:60px"
 			id = "Search"
 			class = "Search">Search</button> 
-	<button type = "submit" 
-			value = "I feel lucky"
-			width = "100"
-			style="height:25px; width:100px"
-			id = "iFeelLucky"
-			class = "iFeelLucky">I feel lucky!</button>
 </form>
+
+<%
+   	Main.main(null);
+
+	out.println("<br><br>"+ " Link to ResultFile of the Query" + Main.answer);
+
+%>
+
+
+
 </body>
 </html>
