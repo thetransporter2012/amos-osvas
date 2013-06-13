@@ -29,7 +29,7 @@
 <%@ page import="javax.xml.parsers.ParserConfigurationException" %>
 <%@ page import="javax.xml.transform.*" %>
 <%@ page import="org.w3c.dom.*" %>
-<%@ page import="amos.*" %>
+
 
 
 
@@ -42,7 +42,7 @@
 <p>Upload your File list here</p>
 
 	
-	<form action="index2.jsp" enctype="multipart/form-data" method="POST">
+	<form action="outputpage.jsp" enctype="multipart/form-data" method="POST">
 <input type="file" name="myFile">
 <input type="submit" value="Upload">
 <br>
@@ -55,10 +55,16 @@
 </form>
 
 <%
-   	Main.main(null);
+    // This is a scriptlet.  Notice that the "date"
+    // variable we declare here is available in the
+    // embedded expression later on.
 
-	out.println("<br><br>"+ " Link to ResultFile of the Query" + Main.answer);
+	
+   
+	
 
+		
+	
 %>
 
 
