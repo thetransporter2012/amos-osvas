@@ -1,3 +1,4 @@
+package amos;
 //package com.mkyong.core;
 
 
@@ -22,7 +23,6 @@
 * <http://www.gnu.org/licenses/>.
 */
  
-import java.io.File;
 import java.io.*;
 import java.util.Arrays;
 import javax.xml.parsers.DocumentBuilder;
@@ -44,11 +44,34 @@ public class WriteXMLFile {
 	/**
 	 * @param args
 	 */
+	public static String answ(){
+		
+		return "Scheint zu gehen";
+	}
+	public static String getStringFromDocument(Document doc)
+	{
+	    try
+	    {
+	       DOMSource domSource = new DOMSource(doc);
+	       StringWriter writer = new StringWriter();
+	       StreamResult result = new StreamResult(writer);
+	       TransformerFactory tf = TransformerFactory.newInstance();
+	       Transformer transformer = tf.newTransformer();
+	       transformer.transform(domSource, result);
+	       return writer.toString();
+	    }
+	    catch(TransformerException ex)
+	    {
+	       ex.printStackTrace();
+	       return null;
+	    }
+	} 
+	
 	public static void main(String[] args) throws Exception{
 		 try {
 			 
-			 	String xmlpath = "C:\\XMLQuery.xml";
-			 	String csvpath = "C:\\CSVInput.csv";
+			 	String xmlpath = "/XMLQuery.xml";
+			 	String csvpath = "/CSVInput.csv";
 			 	
 				DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder docBuilder = docFactory.newDocumentBuilder();							
@@ -214,7 +237,13 @@ public class WriteXMLFile {
 		 
 				transformer.transform(source, result);
 		 
-				System.out.println("File saved sucessfully!");
+				//System.out.println("File saved sucessfully!");
+				
+				//output String
+				String outs = getStringFromDocument(doc);
+				
+				
+				System.out.println(outs);
 		 
 			  } catch (ParserConfigurationException pce) {
 				pce.printStackTrace();
