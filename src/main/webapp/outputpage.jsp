@@ -57,7 +57,7 @@
 <%
    	Main.main(null);
 
-	out.println("<br><br>"+ " Link to ResultFile of the Query" + Main.answer);
+	out.println("<br><br>"+ " Link to ResultFile of the Query" + Main.answer + "<br><br>" + "<a href= CSVInput.csv &quot;> <button> Download </button> </a> ");
 
 %>
 
