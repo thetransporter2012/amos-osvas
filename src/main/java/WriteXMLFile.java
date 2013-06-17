@@ -70,7 +70,7 @@ public class WriteXMLFile {
 	public static void main(String[] args) throws Exception{
 		 try {
 			 
-			 	String xmlpath = "/XMLQuery.xml";
+			 	//String xmlpath = "/XMLQuery.xml";
 			 	String csvpath = "/CSVInput.csv";
 			 	
 				DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -230,12 +230,12 @@ public class WriteXMLFile {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				StreamResult result = new StreamResult(new File(xmlpath));
+				//StreamResult result = new StreamResult(new File(xmlpath));
 		 
 				// Output to console for testing
 				// StreamResult result = new StreamResult(System.out);
 		 
-				transformer.transform(source, result);
+				//transformer.transform(source, result);
 		 
 				//System.out.println("File saved sucessfully!");
 				
