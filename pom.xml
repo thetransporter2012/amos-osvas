@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.theamosproject.app</groupId>
-  <artifactId>amos</artifactId>
+  <artifactId>amos-osvas</artifactId>
   <packaging>war</packaging>
   <version>0.1</version>
   <name>amos-osvas Maven Webapp</name>
@@ -12,10 +12,10 @@
   </properties>
   <dependencies>
 	<dependency>
-	  <groupId>javax.servlet</groupId>
-	  <artifactId>servlet-api</artifactId>
-	  <version>3.0</version>
-	  <scope>provided</scope>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
 	</dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -33,8 +33,13 @@
       <artifactId>jsoup</artifactId>
       <version>1.6.1</version>
     </dependency>
+	<dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>1.4.3</version>
+    </dependency>
   </dependencies>
   <build>
-    <finalName>amos</finalName>
+    <finalName>amos-osvas</finalName>
   </build>
 </project>
