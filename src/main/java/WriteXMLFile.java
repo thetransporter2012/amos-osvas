@@ -38,12 +38,9 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-
+/*
 public class WriteXMLFile {
 
-	/**
-	 * @param args
-	 */
 	public static String answ(){
 		
 		return "Scheint zu gehen";
@@ -97,7 +94,7 @@ public class WriteXMLFile {
 				}
 				
 				// table contains all lines in an array
-				CSVLine[] table = new CSVLine[rowcounter-2];
+    			CSVLine[] table = new CSVLine[rowcounter-2];
 				
 				String dataRow = CSVFile.readLine();
 				dataRow = CSVFile.readLine();
@@ -253,3 +250,4 @@ public class WriteXMLFile {
 			}
 
 }
+*/
