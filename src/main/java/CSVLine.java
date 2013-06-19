@@ -1,4 +1,4 @@
-package amos;
+
 /*
 * Copyright (c) 2013 by The AMOS project, Group 3,
 * http://osr.cs.fau.de/2013/04/17/the-2013-amos-projects-start-today/
