@@ -1,5 +1,4 @@
-package amos;
-//package com.mkyong.core;
+
 
 
 /*
@@ -38,13 +37,26 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-/*
+
 public class WriteXMLFile {
 
-	public static String answ(){
-		
-		return "Scheint zu gehen";
+	/**
+	 * @param args
+	 */
+	public static String inputPathCSV;// = "/CSVInput.csv";
+	public static String outputPathXML;// = "/XMLQuery.xml";
+
+	@SuppressWarnings("static-access")
+	public void setInputPath (String inputPathCSV){
+	this.inputPathCSV = inputPathCSV;
 	}
+
+
+	@SuppressWarnings("static-access")
+	public void setOutputPath (String outputPathXML){
+	this.outputPathXML = outputPathXML;
+	}
+	
 	public static String getStringFromDocument(Document doc)
 	{
 	    try
@@ -68,7 +80,7 @@ public class WriteXMLFile {
 		 try {
 			 
 			 	//String xmlpath = "/XMLQuery.xml";
-			 	String csvpath = "/CSVInput.csv";
+			 	//String csvpath = "/CSVInput.csv";
 			 	
 				DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 				DocumentBuilder docBuilder = docFactory.newDocumentBuilder();							
@@ -78,10 +90,10 @@ public class WriteXMLFile {
 				//open CSV File 
 				
 				BufferedReader CSVFile = 
-				        new BufferedReader(new FileReader(csvpath));
+				        new BufferedReader(new FileReader(inputPathCSV));
 				
 				BufferedReader CSVFiletest = 
-				        new BufferedReader(new FileReader(csvpath));
+				        new BufferedReader(new FileReader(inputPathCSV));
 				
 				String testrow = CSVFiletest.readLine();
 				
@@ -94,7 +106,7 @@ public class WriteXMLFile {
 				}
 				
 				// table contains all lines in an array
-    			CSVLine[] table = new CSVLine[rowcounter-2];
+				CSVLine[] table = new CSVLine[rowcounter-2];
 				
 				String dataRow = CSVFile.readLine();
 				dataRow = CSVFile.readLine();
@@ -227,20 +239,20 @@ public class WriteXMLFile {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 				Transformer transformer = transformerFactory.newTransformer();
 				DOMSource source = new DOMSource(doc);
-				//StreamResult result = new StreamResult(new File(xmlpath));
+				StreamResult result = new StreamResult(new File(outputPathXML));
 		 
 				// Output to console for testing
 				// StreamResult result = new StreamResult(System.out);
 		 
-				//transformer.transform(source, result);
+				transformer.transform(source, result);
 		 
 				//System.out.println("File saved sucessfully!");
 				
 				//output String
-				String outs = getStringFromDocument(doc);
+			//	String outs = getStringFromDocument(doc);
 				
 				
-				System.out.println(outs);
+			//	System.out.println(outs);
 		 
 			  } catch (ParserConfigurationException pce) {
 				pce.printStackTrace();
@@ -250,4 +262,3 @@ public class WriteXMLFile {
 			}
 
 }
-*/

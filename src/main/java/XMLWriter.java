@@ -1,3 +1,4 @@
+package amos;
 	/*
 	 * Copyright (c) 2013 by The AMOS project, Group 3, 
 	 * http://osr.cs.fau.de/2013/04/17/the-2013-amos-projects-start-today/
@@ -27,7 +28,6 @@ import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
-
 public class XMLWriter {
 
 	/**
@@ -38,13 +38,14 @@ public class XMLWriter {
 	 * @throws SAXException 
 	 * @throws ParserConfigurationException 
 	 */
+	/*
 	public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
-		final String outputXMLPath = "/users/Radi/Desktop/XMLOutput.xml";
+		final String outputXMLPath = "/users/Radi/Desktop/src/";
 		String[] s = XMLReader.URLGen();
 		String url = s[0];
 		fillFile(url, outputXMLPath);
 	}
-	
+	*/
 	public static void fillFile(String url, String outputXMLPath) throws IOException{
 		String[] text = XMLReader.OutputString(url);
 		File output = new File(outputXMLPath);
@@ -60,6 +61,38 @@ public class XMLWriter {
 			bWriter.newLine();
 		}
 		bWriter.close();
+		System.out.println("Finished");
+	}
+	
+	
+	public static void fillFiles(String[] url, String outputXMLPath) throws IOException{
+		
+		
+		for (int k = 0; k < url.length; k++){
+			
+			
+			String[] text = XMLReader.OutputString(url[k]);
+			
+			String name = outputXMLPath + "/XMLOutput_" + k + ".xml";
+			
+			File output = new File(name);
+			
+			
+			if (output.exists() == false) {
+				output.createNewFile();
+			}
+			FileWriter fWriter = new FileWriter(output.getAbsoluteFile());
+			BufferedWriter bWriter = new BufferedWriter(fWriter);
+			for (int i = 0; i < text.length; i++){
+				if (text[i] != null){
+					bWriter.write(text[i]);
+				}
+				bWriter.newLine();
+			}
+			bWriter.close();
+			int l = k+1;
+			System.out.println("File " + l + " of " + url.length + " filled");
+		}
 		System.out.println("Finished");
 	}
 }

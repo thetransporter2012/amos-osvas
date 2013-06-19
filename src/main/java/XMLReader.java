@@ -1,3 +1,4 @@
+package amos;
 	/*
 	 * Copyright (c) 2013 by The AMOS project, Group 3, 
 	 * http://osr.cs.fau.de/2013/04/17/the-2013-amos-projects-start-today/
@@ -34,7 +35,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -45,7 +45,15 @@ public class XMLReader {
 	public static int product = 1780; 	//Windows
 	public static int version = 3084; 	//???
 	static String apiKey = "XXXXXXXXXXXXXXXXXXXXXXXXXX";
-	public static final String inputXMLdirectory = "/Users/Radi/Desktop/XMLQuery.xml";
+	public static String inputXMLdirectory = "/Users/Radi/Desktop/XMLQuery.xml";
+	
+	
+	
+	@SuppressWarnings("static-access")
+	public void setInputPathXML(String inputPathXML){
+		this.inputXMLdirectory = inputPathXML;
+	}
+	
 	
 	/**
 	 * @param args
@@ -53,6 +61,7 @@ public class XMLReader {
 	 * @throws SAXException 
 	 * @throws ParserConfigurationException 
 	 */
+	/*
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
 
 		/* PLAN A - code behind the OSVDB vulnerability query page, HTTP response: 500
@@ -63,7 +72,7 @@ public class XMLReader {
 		}
 		 */		 
 
-//		/* PLAN B - code behind the OSVDB advanced search result page
+		/* PLAN B - code behind the OSVDB advanced search result page
 		String[] s = URLGen();
 		String urlAddress = s[0];
 		String[] output = OutputString(urlAddress);
@@ -76,9 +85,14 @@ public class XMLReader {
 		for (int i = 0; i < output.length; i++){
 			System.out.println(output[i]);
 		}
-//		 */		 
+		
+		String[] s = URLGen();
+		for (int i = 0; i < s.length; i++){
+			System.out.println(s[i]);
+		}
 	
 	}
+	*/
 	
 	public static String[] OutputString(String urlAddress) throws IOException{
 		if (urlAddress == null){
@@ -123,6 +137,26 @@ public class XMLReader {
 		}
 		return s;
 	}
+	
+	/**
+	 * generate an array of URL addresses to be visited, stored in the XML file
+	 * 
+	 * @return a string of URLs
+	 * @param path 
+	 * @throws ParserConfigurationException 
+	 * @throws IOException 
+	 * @throws SAXException 
+	 */
+	public static String[] URLGen(String path) throws ParserConfigurationException, SAXException, IOException{
+		String[] s = XMLReaderByTitle(path);
+		for (int i = 0; i < s.length; i++){
+			String[] cString = new String[1];
+			cString[0] = s[i];
+			s[i] = getUrlByTitle(cString);
+		}
+		return s;
+	}
+
 	
 	/**
 	 * generate an array of strings, which represent the titles being browsed
