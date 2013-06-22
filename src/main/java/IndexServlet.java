@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.thoughtworks.xstream.*;
 public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/index.jsp")
+        request.getRequestDispatcher("/WEB-INF/homepage.jsp")
             .forward(request, response);
     }
 

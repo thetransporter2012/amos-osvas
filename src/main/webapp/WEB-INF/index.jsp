@@ -4,21 +4,23 @@
 <h2>The AMOS-Project, Group 3</h2>
 
 <p>This tool is intended to aggregate several databases containing vulnerabilities of software components. The aim is to have one single webservice to access all databases at once.</p>
-<p>Currently implemented are the following databases:</p>
 
-<ul>
-    <li><a href="http://www.osvdb.org/">Open Source Vulnerability Database</a>
-        <p>They did not want to provide us with a working API? We built one based on HTML-parsing!</p>
-    </li>
-</ul>
-
-<h3>Try out yourself</h3>
-<p>Type in a query to search for:</p>
-<form action="index" method="POST">
-    <input type="text" value="" placeholder="Cisco" name="query" />
-    <input type="submit" />
+<center>
+<h3>Please sign in to continue</h3>
+<form action="index" method="post">
+    <table>
+        <tr>
+            <td> Username  : </td><td> <input name="user" size=20 type="text" /> </td> 
+        </tr>
+        <tr>
+            <td> Password  : </td><td> <input name="pass" size=20 type="password" /> </td> 
+        </tr>
+    </table>
+	<input type="submit" value="login" />
 </form>
-<script>
+
+</center>
+
    
 </script>
 <jsp:include page="footer.jsp" />
