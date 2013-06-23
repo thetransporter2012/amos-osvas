@@ -19,6 +19,18 @@
   </welcome-file-list>
 
   <servlet>
+    <display-name>FileUploadServlet</display-name>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <servlet-class>amosup.FileUploadServlet</servlet-class>
+  </servlet>
+   
+  <servlet-mapping>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <url-pattern>/uploadFile</url-pattern>
+  </servlet-mapping>
+     
+ 
+  <servlet>
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>IndexServlet</servlet-class>
   </servlet>
@@ -45,5 +57,12 @@
     <servlet-name>LogInServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
+	<context-param> 
+   		 <description>Location to store uploaded file</description> 
+   		 <param-name>file-upload</param-name> 
+   		 <param-value>
+       			  C:\
+    		 </param-value> 
+	</context-param>
   
 </web-app>
