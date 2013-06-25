@@ -10,7 +10,7 @@
 
 <p>The column names must be present in the first row of the file</p>
 
-<form action="upload" enctype="multipart/form-data" method="POST">
+<form action="uploadFile" enctype="multipart/form-data" method="POST">
 	<input type="file" name="file">
 	<input type="submit" value="Upload">
 </form>
