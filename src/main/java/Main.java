@@ -1,5 +1,4 @@
 
-package amos;
 
 /*
  * Copyright (c) 2013 by The AMOS project, Group 3, 
@@ -25,14 +24,78 @@ package amos;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 
 public class Main {
+		
+	public static void main (String[] args) {
+		//
+	}
 	
+	public static String[] getTitles (String path) throws Exception{
+		
+		String xmlFromCsv = WriteXMLFile.getXML(path);
+		String [] titles = XMLReaderByTitle(xmlFromCsv);		//TODO: change the moethod!!
+		return titles;
+	}
+	
+	/**
+	 * generate an array of strings, which represent the titles being browsed
+	 * 
+	 * @return a string of titles being browsed
+	 * @param directory The path where the XML file is stored 
+	 * @throws ParserConfigurationException 
+	 * @throws IOException 
+	 * @throws SAXException 
+	 */
+	public static String[] XMLReaderByTitle (String xml) throws ParserConfigurationException, SAXException, IOException{
+		
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        InputSource is = new InputSource(new StringReader(xml));
+		
+		Document doc = builder.parse(is);
+		NodeList nList = doc.getElementsByTagName("URLString");
+		int len = 0;
+		for (int i = 0; i < nList.getLength(); i++){
+			len++;
+		}
+		String[] s = new String[len];
+		for (int i = 0; i < nList.getLength(); i++){
+			Node nNode = nList.item(i);
+			Element eElement = (Element) nNode;
+			s[i] = eElement.getElementsByTagName("title").item(0).getTextContent();
+		} 
+		return s;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	public static String inputPathCSV = "/Users/Radi/Desktop/CSVInput.csv";
 	public static String inputPathXML = "/Users/Radi/Desktop/XMLQuery.xml";
 	public static String outputPathXML = "/Users/Radi/Desktop/src";		//the place to store search results
@@ -90,22 +153,24 @@ public class Main {
 		answer = "/XMLOutputDatabase";
 	}
 	*/
+	
 
 
-
-
+	
 	/**
 	 * The existing functionality at the moment involves a file system.
 	 * This method simulates the output of the search query for the first
 	 * line in the dummy csv file, that would normally be filled in a file.
 	 */
+	
+	/*
 	public static String[] main (String args[]) throws Exception {
 		
 		String s = "http://www.osvdb.org/search/search?search%5Bvuln_title%5D=Apache+Ant&search%5Btext_type%5D=alltext&search%5Bs_date%5D=&search%5Be_date%5D=&search%5Brefid%5D=&search%5Breferencetypes%5D=&search%5Bvendors%5D=&search%5Bcvss_score_from%5D=&search%5Bcvss_score_to%5D=&search%5Bcvss_av%5D=*&search%5Bcvss_ac%5D=*&search%5Bcvss_a%5D=*&search%5Bcvss_ci%5D=*&search%5Bcvss_ii%5D=*&search%5Bcvss_ai%5D=*&kthx=search";
 		String[] r = XMLReader.OutputString(s);
 		return r;
 	}
-	
+	*/
 	
 	/**
 	 * @param vendorName The name of the vendor, whose ID is to be returned
@@ -113,7 +178,9 @@ public class Main {
 	 * @return an array of IDs correspondent to that name 
 	 * @throws IOException 
 	 */	
-	 public static void clearDir (File directory) {
+	 
+	/*
+	public static void clearDir (File directory) {
 	      
 		for (File file : directory.listFiles()) {
 	        if (file.isFile()) {
@@ -121,4 +188,5 @@ public class Main {
 	        }
 	    }
 	}
+	*/
 }

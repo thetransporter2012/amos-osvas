@@ -21,7 +21,7 @@
   <servlet>
     <display-name>FileUploadServlet</display-name>
     <servlet-name>FileUploadServlet</servlet-name>
-    <servlet-class>amosup.FileUploadServlet</servlet-class>
+    <servlet-class>FileUploadServlet</servlet-class>
   </servlet>
    
   <servlet-mapping>
