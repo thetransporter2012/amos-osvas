@@ -6,13 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import com.thoughtworks.xstream.*;
 public class LogInServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/index.jsp")
-            .forward(request, response);
-    }
-
+	
 	public static final String[][] info = {{"Dirk", "AMOS"},
 											{"Bosch", "AMOS"},
 											{"Dominik", "AMOS"},
@@ -29,6 +26,15 @@ public class LogInServlet extends HttpServlet {
 		}
 		return false;
 	}
+	
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+            request.getRequestDispatcher("/WEB-INF/index.jsp")
+				.forward(request, response);
+		
+    }
+	
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
@@ -37,6 +43,9 @@ public class LogInServlet extends HttpServlet {
         
 		if(check(user, pass) == true) {
             
+			HttpSession session = request.getSession();
+			session.setAttribute("userName", user);
+			
             request.getRequestDispatcher("/WEB-INF/homepage.jsp")
             .forward(request, response);
 		} else {
@@ -48,9 +57,7 @@ public class LogInServlet extends HttpServlet {
 			out.println("<h1>" + "The AMOS Project, Group 3 - Open Source Vulnerability Assessment Service" + "</h1>");
 			out.println("<a>Invalid password, please try again!</a>");
 			out.println("</body></html>");
-			//out.println(user);
-			//out.println(pass);
-			//out.println(check(user, pass));
+			out.close();
 		}
 	}
 }

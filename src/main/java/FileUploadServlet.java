@@ -15,6 +15,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
  
 import com.thoughtworks.xstream.*;
+import javax.servlet.http.*;
 
 
 /**
@@ -41,7 +42,22 @@ public class FileUploadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         // checks if the request actually contains upload file
-        if (!ServletFileUpload.isMultipartContent(request)) {
+        
+		HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("userName");
+		if (user == null || user == ""){
+			PrintWriter out = response.getWriter();
+			out.println("<!DOCTYPE html>"); 
+			out.println("<html><head>");
+			out.println("<title>" + "The AMOS Project, Group 3 - Open Source Vulnerability Assessment Service" + "</title></head>");
+			out.println("<body>");
+			out.println("<h1>" + "The AMOS Project, Group 3 - Open Source Vulnerability Assessment Service" + "</h1>");
+			out.println("<a>You must be logged in to access this functionality!</a>");
+			out.println("</body></html>");
+			return;
+		}
+		
+		if (!ServletFileUpload.isMultipartContent(request)) {
             // if not, we stop here
             PrintWriter writer = response.getWriter();
             writer.println("Error: Form must has enctype=multipart/form-data.");

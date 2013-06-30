@@ -1,5 +1,14 @@
 <jsp:include page="header.jsp" />
 
+<%
+if(null == session.getAttribute("userName")){  
+%>
+<p>You must be logged in to access this functionality!</p>
+<%
+} else {
+%>
+
+
 <h1>Open Source Vulnerability Assessment Service</h1>
 <h2>The AMOS-Project, Group 3</h2>
 
@@ -21,4 +30,11 @@
 <script>
    
 </script>
+
+
+<%
+}
+%>
+
+
 <jsp:include page="footer.jsp" />

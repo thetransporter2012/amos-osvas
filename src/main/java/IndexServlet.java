@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.thoughtworks.xstream.*;
+import javax.servlet.http.*;
+
 public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/homepage.jsp")
@@ -14,7 +16,21 @@ public class IndexServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String query = request.getParameter("query");
+        HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("userName");
+		if (user == null || user == ""){
+			PrintWriter out = response.getWriter();
+			out.println("<!DOCTYPE html>"); 
+			out.println("<html><head>");
+			out.println("<title>" + "The AMOS Project, Group 3 - Open Source Vulnerability Assessment Service" + "</title></head>");
+			out.println("<body>");
+			out.println("<h1>" + "The AMOS Project, Group 3 - Open Source Vulnerability Assessment Service" + "</h1>");
+			out.println("<a>You must be logged in to access this functionality!</a>");
+			out.println("</body></html>");
+			return;
+		}
+		
+		String query = request.getParameter("query");
 
         Vulnerabilities req = new Vulnerabilities(query);
 

@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp" />
+<jsp:include page="loginHeader.jsp" />
 
 <h1>Open Source Vulnerability Assessment Service</h1>
 <h2>The AMOS-Project, Group 3</h2>
@@ -23,4 +23,5 @@
 
    
 </script>
+
 <jsp:include page="footer.jsp" />

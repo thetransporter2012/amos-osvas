@@ -42,12 +42,6 @@
             <span class="icon-bar"></span>
           </button>
           <a class="brand" href="#">AMOS-OSVAS</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="homepage">Home</a></li>
-              <li><a href="upload">Upload</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
