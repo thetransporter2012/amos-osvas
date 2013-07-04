@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <!-- base href="${pageContext.request.contextPath}"/ -->
-    <base href="http://localhost:8080/amos-osvas/" />
+
+    <!-- base href="http://localhost:8080/amos-osvas/" / -->
+    <base href="/" />
 
     <title>The AMOS Project, Group 3 - Open Source Vulnerability Assessment Service</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
