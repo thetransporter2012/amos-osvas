@@ -21,6 +21,14 @@ if(null == session.getAttribute("userName")){
     </li>
 </ul>
 
+<p>The following databases could be integrated in the future:</p>
+
+<ul>
+    <li>http://cvedetails.com/</li>
+    <li>http://nvd.nist.gov/</li>
+    <li>http://portal.cert.dfn.de/</li>
+</ul>
+
 <h3>Try out yourself</h3>
 <p>Type in a query to search for:</p>
 <form action="homepage" method="POST">

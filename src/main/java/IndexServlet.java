@@ -40,12 +40,20 @@ public class IndexServlet extends HttpServlet {
             return;
         }
 
+        response.getWriter().println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+        response.getWriter().println("<?xml-stylesheet href=\"style.xls\" type=\"text/xsl\" ?>");
+
+        response.getWriter().println("<root>");
+
         for (Vulnerability v : vulns) {
             ArrayList<VulnerabilityElement> vElements = v.getElements();
 
             XStream xstream = new XStream();
             String xml = xstream.toXML(v);
+
             response.getWriter().println(xml);
         }
+        response.getWriter().println("</root>");
+
     }
 }
