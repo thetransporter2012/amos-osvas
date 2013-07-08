@@ -1,0 +1,12 @@
+Bill of Materials;;title;;;;;;;;;;;
+Approval Status;License Conflict;Component;Version;Home Page;Component Comment;License;Usage;Ship Status;# Manual Code Match;# Rapid ID Code Match;# Manual Depends;# Manual Search;Used By
+Pending Approval;No Conflicts;Apache Ant;Unspecified;http://ant.apache.org/;;Apache 1.1;File;Ship;342;0;0;0;
+Pending Approval;No Conflicts;Apache Lucene;Unspecified;http://jakarta.apache.org/lucene/docs/index.html;;Apache License Version 2.0;File;Ship;232;0;0;;
+Pending Approval;No Conflicts;Apache Xerces;Unspecified;http://xml.apache.org/xerces2-j/index.html;;Apache 1.1;File;Ship;699;0;0;0;
+Pending Approval;No Conflicts;GnuPG;Unspecified;http://www.gnupg.org/;;GPL 2.0;Component (Merely Aggregated) (+ Development tool);Ship;6;0;0;0;
+Pending Approval;No Conflicts;bcrypt;Unspecified;http://sourceforge.net/projects/bcrypt/;;BSD 2.0;Snippet;Ship;1;0;0;0;
+Pending Approval;No Conflicts;JavaServer Faces;Unspecified;http://java.sun.com/j2ee/javaserverfaces/index.jsp;;Sun Code Sample License;Other (Development Tool);Used at development time;5;0;0;0;
+Pending Approval;No Conflicts;libgcrypt;Unspecified;http://www.gnupg.org;;LGPL 2.1;Snippet;Ship;1;0;0;;
+Pending Approval;No Conflicts;OpenSSL;Unspecified;http://www.openssl.org/;;OpenSSL Combined License;File;Ship;121;0;0;0;
+Pending Approval;No Conflicts;OpenVPN;Unspecified;http://openvpn.sourceforge.net/;;OpenVPN GPL 2 Only with Exception License;Component (Merely Aggregated);Ship;1;0;0;0;
+Pending Approval;No Conflicts;petris;Unspecified;http://github.com/gitpan/petris/;;GPL 2.0;File;Ship;17;0;0;0;

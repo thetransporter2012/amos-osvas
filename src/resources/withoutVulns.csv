@@ -1,0 +1,13 @@
+Bill of Materials;;title;;;;;;;;;;;
+Approval Status;License Conflict;Component;Version;Home Page;Component Comment;License;Usage;Ship Status;# Manual Code Match;# Rapid ID Code Match;# Manual Depends;# Manual Search;Used By
+Pending Approval;No Conflicts;db-charmer;Unspecified;http://github.com/kovyrin/db-charmer/;;MIT License V2;File;Ship;26;0;0;0;
+Pending Approval;No Conflicts;Mercurial Toolbar;Unspecified;http://mercurialtoolbar.codeplex.com/;;GPL 2.0;Component;Ship;1;0;0;0;
+Pending Approval;No Conflicts;OurFaces;Unspecified;https://ourfaces.dev.java.net/;;Sun Public License v 1.0;File;Ship;15;0;0;0;
+Pending Approval;No Conflicts;RuneKit;Unspecified;http://sourceforge.net/projects/runescapekit/;;GPL 2.0;Component (Merely Aggregated);Ship;1;0;0;0;
+Pending Approval;No Conflicts;Rapid Miner;Unspecified;http://rapid-i.com/content/view/181/190/;;Unspecified;Unspecified;Ship;0;0;0;0;
+Pending Approval;No Conflicts;Data Meer;Unspecified;http://www.datameer.com/;;Unspecified;Unspecified;Ship;0;0;0;0;
+Pending Approval;No Conflicts;Signavio;Unspecified;http://www.signavio.com/;;Unspecified;Unspecified;Ship;0;0;0;0;
+Pending Approval;No Conflicts;Cisco EAP-FAST;Unspecified;http://www.cisco.com/en/US/prod/collateral/wireless/ps5679/ps5861/prod_qas09186a00802030dc_ps430_Products_Q_and_A_Item.html;;Unspecified;Unspecified;Ship;0;0;0;0;
+Pending Approval;No Conflicts;Coca Cola;Unspecified;http://www.coke.de;;Unspecified;Unspecified;Ship;0;0;0;0;
+Pending Approval;No Conflicts;Geany;Unspecified;http://www.geany.org/;;Unspecified;Unspecified;Ship;0;0;0;0;
+;;;;;;;;;;;;;
