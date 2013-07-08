@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-
-    <!-- base href="http://localhost:8080/amos-osvas/" / -->
-    <base href="/" />
-
+	<base href="${pageContext.request.contextPath}/WEB-INF">
     <title>The AMOS Project, Group 3 - Open Source Vulnerability Assessment Service</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -30,6 +27,12 @@
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="ico/favicon.png">
+	<%
+	if (session != null){
+		session.invalidate();
+	}
+	%>
+  
   </head>
 
   <body>
@@ -42,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">AMOS-OSVAS</a>
+          <a class="brand" href="index">AMOS-OSVAS</a>
         </div>
       </div>
     </div>

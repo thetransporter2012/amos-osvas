@@ -6,7 +6,7 @@
 <p>This tool is intended to aggregate several databases containing vulnerabilities of software components. The aim is to have one single webservice to access all databases at once.</p>
 
 <center>
-<h3>Please sign in to continue</h3>
+<h3>Please log in to continue</h3>
 <form action="index" method="post">
     <table>
         <tr>

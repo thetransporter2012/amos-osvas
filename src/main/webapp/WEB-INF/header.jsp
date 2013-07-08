@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="utf-8">
-
-    <!-- base href="http://localhost:8080/amos-osvas/" / -->
-    <base href="/" />
-
+	<base href="${pageContext.request.contextPath}/WEB-INF">
     <title>The AMOS Project, Group 3 - Open Source Vulnerability Assessment Service</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -42,13 +40,28 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">AMOS-OSVAS</a>
-          <div class="nav-collapse collapse">
+          <a class="brand" href="index">AMOS-OSVAS</a>
+			
+		<%
+		if (session.getAttribute( "userName" ) != null){
+		%>
+	
+		 <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="homepage">Home</a></li>
               <li><a href="upload">Upload</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+			</ul>
+         </div><!--/.nav-collapse -->
+		 <div class="nav-collapse collapse" >
+		    <ul class="nav" style="text-align:right">
+			  <li><a href = "index">Hello <%= session.getAttribute( "userName" ) %>, Log out</a></li>
+		    </ul>
+		 </div>
+		 
+		<%
+		}
+		%> 
+		 
         </div>
       </div>
     </div>
