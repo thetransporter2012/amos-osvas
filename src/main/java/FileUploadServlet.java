@@ -1,5 +1,5 @@
 
-import java.io.File;
+import java.io.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -16,6 +16,15 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  
 import com.thoughtworks.xstream.*;
 import javax.servlet.http.*;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 
 /**
@@ -35,6 +44,7 @@ public class FileUploadServlet extends HttpServlet {
     private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
     private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
  
+	
     /**
      * Upon receiving file upload submission, parses the request to read
      * upload data and saves the file on disk.
@@ -152,8 +162,43 @@ public class FileUploadServlet extends HttpServlet {
             XStream xstream = new XStream();
             String xml = xstream.toXML(v);
             response.getWriter().println(xml);
+
+		
+	
         }
-    	
+		
+		
+		
+			
+			
+			
+			String output_filename = "Output.xml";
+			String project_name = "amos-osvas/";
+			String output_path = getServletContext().getRealPath("")
+                + File.separator + output_filename;
+			
+			BufferedWriter bufferedWriter = null;
+			//bufferedWriter = new BufferedWriter(new FileWriter(output_path));
+			//bufferedWriter.setContentType("application/force-download");
+			
+			bufferedWriter =  new BufferedWriter(new OutputStreamWriter(new FileOutputStream(output_path),"UTF-8"));
+
+		
+			//Here you have to insert the XML Output String
+			bufferedWriter.write("<xml> </xml>");
+			
+			bufferedWriter.flush();
+            bufferedWriter.close();
+			
+			
+						
+			
+			
+			
+			
+			
+			//response.getWriter().println("<html> <body> Output File was sucessfully created! <br> <br> Download the created XML File: <br> <br> <a href=\""+ output_path+"\"> <button> Download </button></a> </body> </html>");
+    		//response.getWriter().println("<a href=\"\"> <button> hi </button> </a>");
     	
     	
     	
