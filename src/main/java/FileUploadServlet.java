@@ -132,6 +132,8 @@ public class FileUploadServlet extends HttpServlet {
        
         
         String[] queries = null;
+		Vulnerabilities[] vulns = null;
+		
     	try {
 			queries = Main.getTitles(uploadFilePath);
 		} catch (Exception e) {
@@ -139,38 +141,35 @@ public class FileUploadServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	
-    	Vulnerabilities[] vulns = new Vulnerabilities[queries.length];
-		for (int i = 0; i < queries.length; i++){
-			String query = request.getParameter(queries[i]);
-			vulns[i] = new Vulnerabilities(query);
-		}
-		
-		if (null == vulns || vulns.length == 0) {
-            response.getWriter().println("Request returned no results");
-            return;
-        }
+		if (queries == null){
+			response.getWriter().println("Request returned no results");
+			return;
+		} else {		
+			vulns = new Vulnerabilities[queries.length];
+			if (null == vulns || vulns.length == 0) {
+				response.getWriter().println("Request returned no results");
+				return;
+			}
 
-		ArrayList<Vulnerability> vList = vulns[0].getVulnerabilities();
+			for (int i = 0; i < queries.length; i++){
+				String query = request.getParameter(queries[i]);
+				vulns[i] = new Vulnerabilities(query);
+			}
 		
-		for (int i = 1; i < vulns.length; i++){
-			vList.addAll(vulns[i].getVulnerabilities());
-		}
+			ArrayList<Vulnerability> vList = vulns[0].getVulnerabilities();
 		
-        for (Vulnerability v : vList) {
-            ArrayList<VulnerabilityElement> vElements = v.getElements();
+			for (int i = 1; i < vulns.length; i++){
+				vList.addAll(vulns[i].getVulnerabilities());
+			}
+		
+			for (Vulnerability v : vList) {
+				ArrayList<VulnerabilityElement> vElements = v.getElements();
 
-            XStream xstream = new XStream();
-            String xml = xstream.toXML(v);
-            response.getWriter().println(xml);
-
-		
-	
-        }
-		
-		
-		
-			
-			
+				XStream xstream = new XStream();
+				String xml = xstream.toXML(v);
+				response.getWriter().println(xml);
+			}
+		}	
 			
 			String output_filename = "Output.xml";
 			String project_name = "amos-osvas/";
@@ -190,24 +189,9 @@ public class FileUploadServlet extends HttpServlet {
 			bufferedWriter.flush();
             bufferedWriter.close();
 			
-			
-						
-			
-			
-			
-			
-			
 			//response.getWriter().println("<html> <body> Output File was sucessfully created! <br> <br> Download the created XML File: <br> <br> <a href=\""+ output_path+"\"> <button> Download </button></a> </body> </html>");
     		//response.getWriter().println("<a href=\"\"> <button> hi </button> </a>");
     	
-    	
-    	
-    	
-    	
-    	
-    	
-        
-        
         // redirects client to message page
       //getServletContext().getRequestDispatcher("/message.jsp").forward(
         //       request, response);
