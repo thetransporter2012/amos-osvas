@@ -134,6 +134,8 @@ public class FileUploadServlet extends HttpServlet {
         String[] queries = null;
 		Vulnerabilities[] vulns = null;
 		
+		long startTime = System.currentTimeMillis();
+		
     	try {
 			queries = Main.getTitles(uploadFilePath);
 		} catch (Exception e) {
@@ -158,9 +160,14 @@ public class FileUploadServlet extends HttpServlet {
 		
 			ArrayList<Vulnerability> vList = vulns[0].getVulnerabilities();
 		
-			for (int i = 1; i < vulns.length; i++){
-				vList.addAll(vulns[i].getVulnerabilities());
+			if (vulns.length >= 1){
+				for (int i = 1; i < vulns.length; i++){
+					if (vulns[i].getVulnerabilities() != null){
+						vList.addAll(vulns[i].getVulnerabilities());
+					}
+				}
 			}
+			
 		
 			for (Vulnerability v : vList) {
 				ArrayList<VulnerabilityElement> vElements = v.getElements();
@@ -170,6 +177,9 @@ public class FileUploadServlet extends HttpServlet {
 				response.getWriter().println(xml);
 			}
 		}	
+		
+		long estimatedTime = (System.currentTimeMillis() - startTime)/1000;
+		response.getWriter().println("(" + estimatedTime + " seconds)");
 			
 			String output_filename = "Output.xml";
 			String project_name = "amos-osvas/";

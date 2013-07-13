@@ -1,0 +1,34 @@
+TYPE		INPUT				TIME		CORRECTNESS			
+
+file		withoutVulns.xml	18s			false				
+file		withoutVulns.xml	17s			false				
+file		withoutVulns.xml	18s			false				
+file		withoutVulns.xml	11s			false				
+file		withoutVulns.xml	15s			false				
+file		withVulns.xml		17s			false				
+file		withVulns.xml		16s			false				
+file		withVulns.xml		13s			false				
+file		withVulns.xml		14s			false				
+file		withVulns.xml		15s			false				
+manual		db-charmer			0s			true				
+manual		Mercurial Toolbar	0s			true				
+manual		OurFaces			0s			true				
+manual		RuneKit				0s			true				
+manual		Rapid Miner			0s			true				
+manual		Data Meer			0s			true				
+manual		Signavio			0s			true				
+manual		Cisco EAP-FAST		0s			true				
+manual		Coca Cola			0s			true				
+manual		Geany				0s			true				
+manual		Apache Ant			0s			false				
+manual		Apache Lucene		0s			false				
+manual		Apache Xerces		0s			false				
+manual		GnuPG				0s			true				
+manual		bcrypt				0s			true				
+manual		JavaServer Faces	0s			false				
+manual		libgcrypt			0s			true				
+manual		OpenSSL				0s			true				
+manual		OpenVPN				0s			true				
+manual		petris				0s			false
+==================================================
+//the url addresses seem to be wrong sometimes				

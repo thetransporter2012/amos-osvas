@@ -33,18 +33,22 @@ public class IndexServlet extends HttpServlet {
 		String query = request.getParameter("query");
 
         Vulnerabilities req = new Vulnerabilities(query);
-
+		
+		long startTime = System.currentTimeMillis();
+		
         ArrayList<Vulnerability> vulns = req.getVulnerabilities();
         if (null == vulns) {
             response.getWriter().println("Request returned no results");
-            return;
+            long estimatedTime = (System.currentTimeMillis() - startTime);
+			response.getWriter().println("(" + estimatedTime + " milliseconds)");
+			return;
         }
-
+		/*
         response.getWriter().println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         response.getWriter().println("<?xml-stylesheet href=\"style.xls\" type=\"text/xsl\" ?>");
 
         response.getWriter().println("<root>");
-
+		*/
         for (Vulnerability v : vulns) {
             ArrayList<VulnerabilityElement> vElements = v.getElements();
 
@@ -53,7 +57,9 @@ public class IndexServlet extends HttpServlet {
 
             response.getWriter().println(xml);
         }
-        response.getWriter().println("</root>");
-
+        //response.getWriter().println("</root>");
+		long estimatedTime = (System.currentTimeMillis() - startTime)/1000;
+		response.getWriter().println("(" + estimatedTime + " seconds)");
+			
     }
 }
