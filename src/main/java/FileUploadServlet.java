@@ -168,6 +168,8 @@ public class FileUploadServlet extends HttpServlet {
 				}
 			}
 			
+			response.setContentType("application/xml"); 
+			response.setHeader("Content-disposition", "attachment; filename=\"vulnerabilities.xml\"");
 		
 			for (Vulnerability v : vList) {
 				ArrayList<VulnerabilityElement> vElements = v.getElements();
