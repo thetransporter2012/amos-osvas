@@ -20,7 +20,7 @@ if(null == session.getAttribute("userName")){
 
 <form action="uploadFile" enctype="multipart/form-data" method="POST">
 	<input type="file" name="file">
-	<input type="submit" value="Upload">
+	<input type="submit" value="Start Request">
 </form>
 
 <%
