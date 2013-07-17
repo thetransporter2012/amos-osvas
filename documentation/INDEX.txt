@@ -1,0 +1,6 @@
+Class Diagram.jpg:		The UML class diagram of the project
+LICENSE.txt:		The license under which the application is distributed
+NEW_DB_INTEGRATION.txt:	A description how to integrate new databases in the application
+Planning_document.pdf:	The planning document, containing organizational information
+README.md:		A generic readme file
+STATS:			Some testing results (feature 51)		
